@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "pokeapi"
+version = "0.1.0"
+description = ""
+authors = ["bulat <bulatsubuh@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+fastapi = "^0.135.2"
+sqlalchemy = "^2.0.48"
+pydantic = {extras = ["email"], version = "^2.12.5"}
+passlib = {extras = ["bcrypt"], version = "^1.7.4"}
+pyjwt = "^2.12.1"
+alembic = "^1.18.4"
+dotenv = "^0.9.9"
+asyncpg = "^0.31.0"
+psycopg2-binary = "^2.9.11"
+python-multipart = "^0.0.22"
+uvicorn = "^0.42.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
