@@ -1,0 +1,28 @@
+services:
+  app:
+    build: .
+    container_name: fastapi_app
+    entrypoint: >
+      sh -c "
+      echo 'Waiting for database...' &&
+      sleep 3;
+      echo 'Applying migrations...' &&
+      export PYTHONPATH=/app &&
+      alembic upgrade head &&
+      echo 'Starting FastAPI...' &&
+      exec uvicorn main:app --host 0.0.0.0 --port 8000
+      "
+    environment:
+      - JWT_SECRET_KEY=${JWT_SECRET_KEY}
+      - POSTGRES_HOST=${DB_HOST}
+      - POSTGRES_PORT=${DB_PORT:-5432}
+      - POSTGRES_USER=${DB_USER}
+      - POSTGRES_PASSWORD=${DB_PASSWORD}
+      - POSTGRES_DB=${DB_NAME}
+    ports:
+      - "8080:8000"
+    volumes:
+      - media_data:/app/media
+
+volumes:
+  media_data:
