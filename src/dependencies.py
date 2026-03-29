@@ -1,24 +1,3 @@
-
-
-# from fastapi import Depends
-# from application.interfaces.repositories import IUnitOfWork
-# from application.common.interfaces.identity import IJwtService
-# from application.common.interfaces.password import IPasswordHasher
-
-# # Импорт реализаций (Infrastructure/Persistence)
-# from persistence.database import async_session_factory
-# from persistence.unit_of_work import UnitOfWork
-# from infrastructure.identity.jwt_service import JwtService
-# from infrastructure.security.password_hasher import PasswordHasher
-
-# # Импорт хендлеров
-# from application.features.users.commands.create_user.handler import CreateUserCommandHandler
-# from application.features.users.commands.login.handler import LoginCommandHandler
-# from application.features.users.queries.get_user_by_id.handler import GetUserByIdQueryHandler
-# from application.features.profiles.queries.get_profile_by_user.handler import GetProfileByUserQueryHandler
-# from application.features.profiles.commands.update_profile.handler import UpdateProfileCommandHandler
-
-# 1. Базовые инфраструктурные зависимости
 from uuid import UUID
 
 from fastapi import Depends, HTTPException, status

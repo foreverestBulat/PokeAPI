@@ -63,9 +63,6 @@ def run_migrations_online() -> None:
     and associate a connection with the context.
 
     """
-    url = config.get_main_option("sqlalchemy.url")
-    print(f"\n>>> DEBUG URL: {url}\n") # Добавь эту строку
-    
     connectable = engine_from_config(
         config.get_section(config.config_ini_section, {}),
         prefix="sqlalchemy.",
